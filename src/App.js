@@ -12,6 +12,7 @@ import SearchByID from './pages/SearchByID'
 import ShowAll from './pages/ShowAll'
 import UpdateModal from './pages/UpdateModal'
 import SearchByAadhaar from './pages/SearchByAadhaar'
+import NotFound from './pages/NotFound'
 
 const App = () => {
 
@@ -29,6 +30,7 @@ const App = () => {
           <Route path='/update/:id' element={<UpdateModal/>}/>
         </Route>
         <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer position='bottom-right'/>
     </Router>
