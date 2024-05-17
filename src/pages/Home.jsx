@@ -1,13 +1,27 @@
 import React, { useEffect } from 'react'
 import { Flex, Card, CardBody, Text } from '@chakra-ui/react'
 import Panel from '../components/Panel'
+import axios from 'axios'
 
 const Home = () => {
 
     const [count, setCount] = React.useState(0)
 
     const fetchCount = async () => {
-        setCount(0)
+        try{
+            await axios.get(process.env.REACT_APP_BACKEND_URL + 'consumer/', {
+                headers: {
+                    'auth-token': localStorage.getItem('token')
+                }
+            }).then((res) => {
+                setCount(res.data)
+            }).catch((err) => {
+                console.log(err)
+            })
+        }
+        catch{
+            console.log('Error fetching count')
+        }
     }
 
     useEffect(()=>{

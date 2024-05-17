@@ -41,6 +41,8 @@ const SearchByID = () => {
     }
 
     const handleDelete = async (id) => {
+        const confirmation = window.confirm('Are you sure you want to delete this consumer?')
+        if(!confirmation) return
         try{
             await axios.delete(process.env.REACT_APP_BACKEND_URL+'consumer/'+id, {
                 headers:{
