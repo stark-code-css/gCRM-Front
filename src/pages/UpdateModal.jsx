@@ -53,7 +53,7 @@ const UpdateModal = () => {
     
             if(res.status === 200){
                 toast.success('Consumer updated successfully')
-                navigate('/showAll')
+                navigate('/searchByID')
             }
             else{
                 toast.error(res.response.data.message)
