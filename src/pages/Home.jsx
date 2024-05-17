@@ -46,12 +46,12 @@ const Home = () => {
                     <CardFooter>
                         <VStack w={'100%'}>
                             <HStack>
-                                <Text color={'teal'} align={'center'} fontSize={'sm'} fontWeight={'200'}>Done : </Text>
-                                <Text color={'teal'} align={'center'} fontSize={'sm'} fontWeight={'200'}>{count.done}</Text>
+                                <Text color={'teal'} align={'center'} fontSize={'lg'} fontWeight={'400'}>Done : </Text>
+                                <Text color={'teal'} align={'center'} fontSize={'lg'} fontWeight={'400'}>{count.done}</Text>
                             </HStack>
                             <HStack>
-                                <Text color={'teal'} align={'center'} fontSize={'sm'} fontWeight={'200'}>Pending : </Text>
-                                <Text color={'teal'} align={'center'} fontSize={'sm'} fontWeight={'200'}>{count.pending}</Text>
+                                <Text color={'teal'} align={'center'} fontSize={'lg'} fontWeight={'400'}>Pending : </Text>
+                                <Text color={'teal'} align={'center'} fontSize={'lg'} fontWeight={'400'}>{count.pending}</Text>
                             </HStack>
                         </VStack>
                     </CardFooter>

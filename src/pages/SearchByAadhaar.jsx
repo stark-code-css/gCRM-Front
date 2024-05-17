@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Flex, VStack, Button, TableContainer, Table, Thead, Tbody, Tr, Th, Td } from '@chakra-ui/react'
+import { Input, Flex, VStack, Button, TableContainer, Table, Thead, Tbody, Tr, Th, Td, Text } from '@chakra-ui/react'
 import Panel from '../components/Panel'
 import axios from 'axios'
 import { toast } from 'react-toastify'
@@ -66,6 +66,7 @@ const SearchByAadhaar = () => {
         <Panel/>
         <Flex justify={'center'} mt={12} direction={'column'} align={'center'}>
             <VStack>
+                <Text fontSize={'2xl'} fontWeight={'200'} color={'teal'} mb={4}>Search By Aadhaar</Text>
                 <VStack>
                     <Input w={'20rem'} placeholder='Enter Aadhaar Number' value={aadhaar} onChange={handleChange}></Input>
                     <Button w={'10rem'} mt={4} colorScheme='teal' onClick={handleSubmit}>Search</Button>

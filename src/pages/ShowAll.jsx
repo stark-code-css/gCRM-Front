@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, TableContainer, Table, Thead, Tbody, Tr, Th, Td, Button, HStack } from '@chakra-ui/react'
+import { Flex, TableContainer, Table, Thead, Tbody, Tr, Th, Td, Button, HStack, Text } from '@chakra-ui/react'
 import Panel from '../components/Panel'
 import axios from 'axios'
 import { toast } from 'react-toastify'
@@ -62,7 +62,7 @@ const ShowAll = () => {
     <>
         <Panel/>
         <Flex justify={'center'} mt={12} direction={'column'} align={'center'}>
-
+            <Text fontSize={'2xl'} fontWeight={'200'} color={'teal'} mb={4}>Show All Consumers</Text>
             <HStack>
                 <Button colorScheme='teal' variant={'solid'} w={'15rem'} onClick={handleSubmit}>Fetch</Button>
                 <CSVLink data={consumer} title='consumer' filename='consumer'>

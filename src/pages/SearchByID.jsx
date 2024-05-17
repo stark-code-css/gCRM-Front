@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Flex, VStack, Button, TableContainer, Table, Thead, Tbody, Tr, Th, Td } from '@chakra-ui/react'
+import { Input, Flex, VStack, Button, TableContainer, Table, Thead, Tbody, Tr, Th, Td, Text } from '@chakra-ui/react'
 import Panel from '../components/Panel'
 import axios from 'axios'
 import { toast } from 'react-toastify'
@@ -65,6 +65,7 @@ const SearchByID = () => {
     <>
         <Panel/>
         <Flex justify={'center'} mt={12} direction={'column'} align={'center'}>
+            <Text fontSize={'2xl'} fontWeight={'200'} color={'teal'} mb={4}>Search By ID</Text>
             <VStack>
                 <VStack>
                     <Input w={'20rem'} placeholder='Enter Consumer ID' value={consumerID} onChange={handleChange}></Input>
