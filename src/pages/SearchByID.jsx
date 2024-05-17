@@ -72,7 +72,7 @@ const SearchByID = () => {
                 </VStack>
             </VStack>
 
-            <TableContainer w={'70%'} mt={8} mb={'5rem'}>
+            <TableContainer w={'80%'} mt={8} mb={'5rem'}>
                 <Table colorScheme='teal' variant={'simple'}>
                     <Thead>
                         <Tr>
