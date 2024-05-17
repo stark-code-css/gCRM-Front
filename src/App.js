@@ -17,23 +17,25 @@ import NotFound from './pages/NotFound'
 const App = () => {
 
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route element={<PrivateRoute/>}>
-          <Route path="/" element={<Home/>} />
-          <Route path="/create" element={<CreateConsumer/>} />
-          <Route path="/searchByName" element={<SearchByName/>} />
-          <Route path="/searchByID" element={<SearchByID/>} />
-          <Route path='/searchByAadhaar' element={<SearchByAadhaar/>}/>
-          <Route path="/showAll" element={<ShowAll/>} />
-          <Route path='/update/:id' element={<UpdateModal/>}/>
-        </Route>
-        <Route path="/login" element={<Login />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <ToastContainer position='bottom-right'/>
-    </Router>
+    <div className="App">
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route element={<PrivateRoute/>}>
+            <Route path="/" element={<Home/>} />
+            <Route path="/create" element={<CreateConsumer/>} />
+            <Route path="/searchByName" element={<SearchByName/>} />
+            <Route path="/searchByID" element={<SearchByID/>} />
+            <Route path='/searchByAadhaar' element={<SearchByAadhaar/>}/>
+            <Route path="/showAll" element={<ShowAll/>} />
+            <Route path='/update/:id' element={<UpdateModal/>}/>
+          </Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <ToastContainer position='bottom-right'/>
+      </Router>
+    </div>
   )
 }
 

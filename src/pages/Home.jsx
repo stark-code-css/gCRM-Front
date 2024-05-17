@@ -1,11 +1,15 @@
 import React, { useEffect } from 'react'
-import { Flex, Card, CardBody, Text } from '@chakra-ui/react'
+import { Flex, Card, CardBody, Text, CardFooter, HStack, VStack, Divider } from '@chakra-ui/react'
 import Panel from '../components/Panel'
 import axios from 'axios'
 
 const Home = () => {
 
-    const [count, setCount] = React.useState(0)
+    const [count, setCount] = React.useState({
+        total: 0,
+        done: 0,
+        pending: 0,
+    })
 
     const fetchCount = async () => {
         try{
@@ -15,6 +19,7 @@ const Home = () => {
                 }
             }).then((res) => {
                 setCount(res.data)
+                console.log(res.data)
             }).catch((err) => {
                 console.log(err)
             })
@@ -32,11 +37,24 @@ const Home = () => {
         <>
             <Panel />
             <Flex dir='row' justify={'flex-end'}>
-                <Card border={'1px'} borderColor={'teal'} m={4} minW={'15rem'} h={'15rem'}>
+                <Card colorScheme='teal' variant={'elevated'} m={4} minW={'15rem'} minH={'15rem'}>
                     <CardBody>
-                        <Text color={'teal'} mb={2} align={'center'} fontSize={'3xl'} fontWeight={'200'}>Count</Text>
-                        <Text color={'teal'} align={'center'} fontSize={'7xl'} fontWeight={'700'}>{count}</Text>
+                        <Text color={'teal'} mb={2} align={'center'} fontSize={'3xl'} fontWeight={'200'}>Total</Text>
+                        <Text color={'teal'} align={'center'} fontSize={'7xl'} fontWeight={'700'}>{count.total}</Text>
                     </CardBody>
+                    <Divider borderColor={'teal'}/>
+                    <CardFooter>
+                        <VStack w={'100%'}>
+                            <HStack>
+                                <Text color={'teal'} align={'center'} fontSize={'sm'} fontWeight={'200'}>Done : </Text>
+                                <Text color={'teal'} align={'center'} fontSize={'sm'} fontWeight={'200'}>{count.done}</Text>
+                            </HStack>
+                            <HStack>
+                                <Text color={'teal'} align={'center'} fontSize={'sm'} fontWeight={'200'}>Pending : </Text>
+                                <Text color={'teal'} align={'center'} fontSize={'sm'} fontWeight={'200'}>{count.pending}</Text>
+                            </HStack>
+                        </VStack>
+                    </CardFooter>
                 </Card>
             </Flex>
         </>
