@@ -43,6 +43,7 @@ const Panel = () => {
                 <Link to={'/searchByID'}><Button colorScheme='teal' variant={'ghost'}>Search by ID</Button></Link>
                 <Link to={'/searchByName'}><Button colorScheme='teal' variant={'ghost'}>Search by Name</Button></Link>
                 <Link to={'/searchByAadhaar'}><Button colorScheme='teal' variant={'ghost'}>Search by Aadhaar</Button></Link>
+                <Link to={'/searchByVillage'}><Button colorScheme='teal' variant={'ghost'}>Search by Village</Button></Link>
               </VStack>
             </DrawerBody>
 

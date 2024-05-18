@@ -13,6 +13,7 @@ import ShowAll from './pages/ShowAll'
 import UpdateModal from './pages/UpdateModal'
 import SearchByAadhaar from './pages/SearchByAadhaar'
 import NotFound from './pages/NotFound'
+import SearchByVillage from './pages/SearchByVillage'
 
 const App = () => {
 
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/searchByName" element={<SearchByName/>} />
             <Route path="/searchByID" element={<SearchByID/>} />
             <Route path='/searchByAadhaar' element={<SearchByAadhaar/>}/>
+            <Route path='/searchByVillage' element={<SearchByVillage/>}/>
             <Route path="/showAll" element={<ShowAll/>} />
             <Route path='/update/:id' element={<UpdateModal/>}/>
           </Route>
