@@ -1,17 +1,34 @@
 import React from 'react'
-import { Input, Flex, VStack, Button, TableContainer, Table, Thead, Tbody, Tr, Th, Td, Text } from '@chakra-ui/react'
+import { Input, Flex, VStack, Button, TableContainer, Table, Thead, Tbody, Tr, Th, Td, Text, HStack } from '@chakra-ui/react'
 import Panel from '../components/Panel'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { EditIcon, DeleteIcon } from '@chakra-ui/icons'
 import { useNavigate } from 'react-router-dom'
+import { CSVLink } from 'react-csv'
+import generatePDF, { Margin, Resolution } from 'react-to-pdf'
 
 const SearchByVillage = () => {
 
     const [village, setVillage] = React.useState('')
     const [consumer, setConsumer] = React.useState([])
+    const tableRef = React.useRef()
 
     const navigate = useNavigate()
+
+    const options = {
+        filename: 'consumers.pdf',
+        resolution: Resolution.HIGH,
+        page:{
+            format: 'A4',
+            margin: Margin.SMALL,
+            orientation: 'landscape',
+        }
+    }
+
+    const getPDF = () => {
+        generatePDF(tableRef, options)
+    }
 
     const handleChange = (e) => {
         setVillage(e.target.value)
@@ -70,12 +87,16 @@ const SearchByVillage = () => {
                 <Text fontSize={'2xl'} fontWeight={'200'} color={'teal'} mb={4}>Search By Village</Text>
                 <VStack>
                     <Input w={'20rem'} placeholder='Enter Village' value={village} onChange={handleChange}></Input>
-                    <Button w={'10rem'} mt={4} colorScheme='teal' onClick={handleSubmit}>Search</Button>
+                    <HStack>
+                        <Button w={'10rem'} mt={4} colorScheme='teal' onClick={handleSubmit}>Search</Button>
+                        <CSVLink data={consumer} filename={'consumers.csv'}><Button w={'10rem'} mt={4} colorScheme='teal' variant={'outline'}>Export to CSV</Button></CSVLink>
+                        <Button onClick={()=>getPDF()} w={'10rem'} mt={4} colorScheme='teal' variant={'outline'}>Export to PDF</Button>
+                    </HStack>
                 </VStack>
             </VStack>
 
             <TableContainer w={'80%'} mt={8} mb={'5rem'}>
-                <Table colorScheme='teal' variant={'simple'}>
+                <Table colorScheme='teal' variant={'simple'} ref={tableRef}>
                     <Thead>
                         <Tr>
                             <Th textAlign={'center'}>Consumer ID</Th>
