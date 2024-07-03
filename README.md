@@ -1,4 +1,4 @@
-visit [](https://shriram-hpgas.vercel.app/) for live preview
+[Click](https://shriram-hpgas.vercel.app/) for live preview
 
 ## Available Scripts
 
