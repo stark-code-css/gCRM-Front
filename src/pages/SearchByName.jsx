@@ -19,13 +19,18 @@ const SearchByName = () => {
 
     const handleSubmit = async (e) => {
         try{
-            await axios.get(process.env.REACT_APP_BACKEND_URL+'consumer/name/'+name, {
+            await axios.get(process.env.REACT_APP_BACKEND_URL+'consumer/all', {
                 headers:{
                     'auth-token': localStorage.getItem('token')
                 }
             }).then((res)=>{
-                setConsumer(res.data)
-                toast.success('Done')
+                let current = []
+                res.data.forEach((e)=>{
+                    if (e.consumer_name.includes(name.toLowerCase()) || e.consumer_name.includes(name.toUpperCase()) || e.consumer_name.includes(name[0].toUpperCase() + name.substring(1, name.length))){
+                        current.push(e);
+                    }
+                })
+                setConsumer(current);
             }).catch((err)=>{
                 console.log(err)
                 toast.error('Something went wrong')
