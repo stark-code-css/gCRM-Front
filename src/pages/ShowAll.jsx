@@ -59,7 +59,7 @@ const ShowAll = () => {
     }
 
     const [search, setSearch] = useState('');
-    const [select, setSelect] = useState('');
+    const [select, setSelect] = useState('consumer_name');
 
     const handleChange = (e) => {
         const value = e.target.value;
